@@ -64,7 +64,7 @@ public class MQTTService implements MqttCallback {
 			if (client.isConnected()) {
 				LOG.info("Connection Status :" + client.isConnected());
 			}
-			client.publish("hai", message);
+			client.publish(topic, message);
 		} catch (MqttPersistenceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
