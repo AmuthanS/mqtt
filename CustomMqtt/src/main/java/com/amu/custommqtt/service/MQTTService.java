@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
 public class MQTTService implements MqttCallback {
 
 	private MqttClient client = null;
-	private String mqttUserName = "highmessage", mqttPassword = "Highmessage1q2w3e4r5t";
-	String mqttIpAddress = "35.169.132.56";
+	private String mqttUserName = "username", mqttPassword = "password";
+	private String mqttIpAddress = "localhost";
 	// String mqttIpAddress = "iot.eclipse.org";
-	private boolean mqttHaveCredential = true;
+	private boolean mqttHaveCredential = false;
 	private String mqttPort = "1883";
 	private String mqttTopic = "topic/rest/project/";
 	Logger LOG = LoggerFactory.getLogger(getClass());
@@ -61,7 +61,6 @@ public class MQTTService implements MqttCallback {
 		message.setQos(2);
 		try {
 			String topic = mqttTopic + topicSuffix;
-//			LOG.info("topic :" + topic+message.getPayload().toString());
 			if (client.isConnected()) {
 				LOG.info("Connection Status :" + client.isConnected());
 			}
